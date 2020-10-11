@@ -1,0 +1,51 @@
+*, html, body{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background-color: #cee6ff;
+}
+
+.bg-primary{
+    background-color: #1F4E79 !important;
+}
+.bg-primary-transparent{
+    background-color: #1f4e797c !important;
+}
+.bg-green{
+    background-color: #548235 !important;
+}
+.bg-purple{
+    background-color: #7030A0 !important;
+}
+
+
+.text-green{
+    color: #548235 !important;
+}
+.text-purple{
+    color: #7030A0 !important;
+}
+.btn:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+
+.input-primary:focus {
+    border: 2px solid #4688f1;
+    box-shadow: none;
+}
+.input-danger {
+    border: 2px solid red;
+}
+.input-danger:focus {
+    border: 2px solid red;
+}
+
+.error_msg {
+    font-size:14px;
+    color: red;
+    display:none;
+}
+
