@@ -26,6 +26,8 @@ body{
 .text-purple{
     color: #7030A0 !important;
 }
+
+
 .btn:focus{
     outline: none;
     box-shadow: none;
@@ -42,10 +44,15 @@ body{
 .input-danger:focus {
     border: 2px solid red;
 }
-
 .error_msg {
-    font-size:14px;
+    font-size: 14px;
     color: red;
-    display:none;
+    display: none;
 }
 
+.dp-none {
+    display:none;
+}
+.v-hidden {
+    visibility: hidden;
+}

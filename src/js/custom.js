@@ -5,11 +5,84 @@ function autofocus(){
 var interval = setInterval(autofocus, 50)
 //animations
 $('.fadeIn').fadeIn(500)
-$('.fadeIn-1').fadeIn(3000)
+$('.fadeIn-1').fadeIn(2000)
+//alert
+$('.alert').fadeOut(4000)
 //navbar 
 $('#sidebarCollapse').click(function(){
     $('#sidebar').toggle(250)
     $('#inputautofocus').focus()
+})
+
+//register
+$('#regForm').submit(function(e){
+    e.preventDefault()
+    var regBtn = true
+    var fname = $('#fname').val()
+    var lname = $('#lname').val()
+    var position = $("input[name='flexRadioDefault']:checked").val()
+    var others = $('#others').val()
+    var idnum = $('#idnum').val()
+    var age = $('#age').val()
+    var email = $('#email').val()
+    var contact = $('#contact').val()
+    var address = $('#address').val()
+    $.post('includes/process.php', {
+        regBtn: regBtn,
+        fname: fname,
+        lname: lname,
+        position: position,
+        others: others,
+        idnum: idnum,
+        age: age,
+        email: email,
+        contact: contact,
+        address: address
+    }, function(data){
+        $('#data').html(data)
+    })
+    if (!fname){
+        $('#fname').addClass('input-danger')
+    }
+    else{
+        $('#fname').removeClass('input-danger')
+    }
+    if (!lname){
+        $('#lname').addClass('input-danger')
+    }
+    else{
+        $('#lname').removeClass('input-danger')
+    }
+    if (!idnum){
+        $('#idnum').addClass('input-danger')
+    }
+    else{
+        $('#idnum').removeClass('input-danger')
+    }
+    if (!age){
+        $('#age').addClass('input-danger')
+    }
+    else{
+        $('#age').removeClass('input-danger')
+    }
+    if (!email){
+        $('#email').addClass('input-danger')
+    }
+    else{
+        $('#email').removeClass('input-danger')
+    }
+    if (!contact){
+        $('#contact').addClass('input-danger')
+    }
+    else{
+        $('#contact').removeClass('input-danger')
+    }
+    if (!address){
+        $('#address').addClass('input-danger')
+    }
+    else{
+        $('#address').removeClass('input-danger')
+    }
 })
 //settings- change username
 $('#changeUsernameForm').submit(function(e){
@@ -93,17 +166,15 @@ $('#changePasswordForm').submit(function(e){
 $('#loginForm').submit(function(e){
     e.preventDefault()
     var loginVal = $('#inputautofocus').val()
-    if(loginVal){
-        $.post('includes/modal.php', {
-            loginBtn: loginVal
-        }, function(data){
-            $('#modal').html(data)
-            clearInterval(interval)
-            $("#loginModal").on('shown.bs.modal', function(){
-                $('#inputTemp').focus()
-            })
+    $.post('includes/modal.php', {
+        loginBtn: loginVal
+    }, function(data){
+        $('#modal').html(data)
+        clearInterval(interval)
+        $("#loginModal").on('shown.bs.modal', function(){
+            $('#inputTemp').focus()
         })
-    }
+    })
 })
 //read btn
 $('.readBtn').click(function(e){

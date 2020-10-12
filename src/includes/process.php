@@ -1,8 +1,72 @@
 <?php
 include_once 'conn.php';
 include_once 'functions.php';
+include '../lib/phpqrcode/qrlib.php';
 //echo "error on if statement";
 
+//register
+if (isset($_POST['regBtn'])) {
+    $fname = mysqli_real_escape_string($conn,$_POST['fname']);
+    $lname = mysqli_real_escape_string($conn,$_POST['lname']);
+    $position = mysqli_real_escape_string($conn,$_POST['position']);
+    $others = mysqli_real_escape_string($conn,$_POST['others']);
+    $idnum = mysqli_real_escape_string($conn,$_POST['idnum']);
+    $age = mysqli_real_escape_string($conn,$_POST['age']);
+    $contact = mysqli_real_escape_string($conn,$_POST['contact']);
+    $address = mysqli_real_escape_string($conn,$_POST['address']);
+    $email = mysqli_real_escape_string($conn,$_POST['email']);
+
+    //idnum duplicate verification
+    $sql= "SELECT * FROM list WHERE idnum='$idnum';";
+    $object = mysqli_query($conn, $sql);
+    $rowcount = mysqli_num_rows($object);
+
+    if(empty($fname) || empty($lname) || empty($position) ||empty($idnum) || empty($age) || empty($contact) || empty($address) || empty($email)) {
+        echo '
+            <script>
+                $("#errEmpty").show()
+                $("#errIdnum").hide()
+                $("#errEmail").hide()
+            </script>
+        ';
+    }
+    else if($rowcount >= 1) {
+        echo '
+            <script>
+                $("#errIdnum").show()
+                $("#idnum").addClass("input-danger")
+                $("#errEmpty").hide()
+                $("#errEmail").hide()
+            </script>
+        ';
+    }
+    else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo '
+            <script>
+                $("#errEmail").show()
+                $("#email").addClass("input-danger")
+                $("#errEmpty").hide()
+                $("#errIdnum").hide()
+            </script>
+        ';
+    }
+    else {
+        $qrcode = uniqid();
+        $filenameExt = $qrcode.".png";
+        $path = '../images/qrcode/';
+        $file = $path.$filenameExt;
+        //$text = "Name: ".$name."\nID#: ".$idnum."\nAge: ".$age."\nContact#: ".$contact."\nAddress: ".$address."\nEmail: ".$email;
+        QRcode::png($qrcode, $file, 'M', 8, 1);
+        //png($filename, $filepath, 'L or M or H or Q', pixel size, frame size)
+        $date = getDateToday();
+        $time = getTimeToday();
+        $sql = "INSERT INTO list (fname, lname, position, others, idnum , age, contact, address, email, qrcode, regdate, regtime) 
+                VALUES ('$fname','$lname','$position','$others','$idnum','$age','$contact','$address','$email','$qrcode','$date','$time');";
+        mysqli_query($conn, $sql);
+
+        echo '<script>location.href="register.php?register=true&idnum='.$idnum.'"</script>' ;
+    }
+}
 
 //settings-change username
 if (isset($_POST['changeUsernameBtn'])){
@@ -70,14 +134,14 @@ if (isset($_POST['changeUsernameBtn'])){
                 SET username='$newUsername'
                 WHERE username ='$currentUsername';";
         mysqli_query($conn, $sql);
-        echo '
-            <script>
-                $("#errNewUsername").hide()
-                $("#errCurrentUsername").hide()
-                $("#errPwd").hide()
-                $("#errEmpty").hide()
-            </script>
-        ';
+        // echo '
+        //     <script>
+        //         $("#errNewUsername").hide()
+        //         $("#errCurrentUsername").hide()
+        //         $("#errPwd").hide()
+        //         $("#errEmpty").hide()
+        //     </script>
+        // ';
         echo '<script>location.href="settings.php?changeUsername=true"</script>' ;
     }
 }
@@ -147,19 +211,11 @@ if (isset($_POST['changePasswordBtn'])){
                 SET pwd='$pwd_hashed'
                 WHERE username ='$username';";
         mysqli_query($conn, $sql);
-        // echo '
-        //     <script>
-        //         $("#errUsername").hide()
-        //         $("#errCurrentPwd").hide()
-        //         $("#errConfirmNewPwd").hide()
-        //         $("#errEmptyChangePwd").hide()
-        //     </script>
-        // ';
         echo '<script>location.href="settings.php?changePassword=true"</script>' ;
     }
 }
 
-//login-insert
+//login
 if (isset($_POST['loginBtn']) ) {
     $fname = mysqli_real_escape_string($conn,$_POST['fname']);
     $lname = mysqli_real_escape_string($conn,$_POST['lname']);
@@ -174,7 +230,7 @@ if (isset($_POST['loginBtn']) ) {
 }
 
 
-//database-update
+//userrecords-update
 if (isset($_POST['update'])){
     $id = mysqli_real_escape_string($conn,$_POST['updateId']);
     $currentPage = mysqli_real_escape_string($conn,$_POST['currentPage']);
@@ -195,7 +251,7 @@ if (isset($_POST['update'])){
     mysqli_query($conn, $sql);
     header("location:../database.php?page=$currentPage&limitRecords=$limitRecords&update=true");
 }
-//database-delete
+//userrecords-delete
 if(isset($_GET['deleteId'])){
     $id = mysqli_real_escape_string($conn, $_GET['deleteId']);
     $currentPage = mysqli_real_escape_string($conn, $_GET['currentPage']);
@@ -215,7 +271,7 @@ if(isset($_GET['deleteId'])){
     header("location:../database.php?page=$currentPage&limitRecords=$limitRecords&delete=true");
 }
 
-//database-export 
+//userrecords-export 
 if (isset ($_POST['export'])){
     header('Content-type: text/csv; charset=utf-8');
     header('Content-Disposition: attachment; filename=data.csv');
@@ -228,20 +284,20 @@ if (isset ($_POST['export'])){
     }
     fclose($output);
 }
-//database-download
+//userrecords-download
 if (isset ($_GET['downloadId'])){
     $id = mysqli_real_escape_string($conn,$_GET['downloadId']);
     $sql = "SELECT * FROM list WHERE id='$id';";
     $object = mysqli_query($conn, $sql);
     $array = mysqli_fetch_assoc($object);
-    $qrcodeLoc = "../images/qr code/".$array['qrcode'].".png";
+    $qrcodeLoc = "../images/qrcode/".$array['qrcode'].".png";
 
     header('Content-type: image/png');
     header("Cache-Control: no-store, no-cache");  
     header('Content-Disposition: attachment; filename="My-QR-Code.png"');
     readfile($qrcodeLoc);
 }
-//database-search
+//userrecords-search
 if (isset($_POST['searchBtn'])) {
     $limit = isset($_POST['limitRecords']) ? $_POST['limitRecords'] : 10;
     $page = isset($_GET['page']) ? $_GET['page'] : 1;
@@ -288,7 +344,7 @@ if (isset($_POST['searchBtn'])) {
     }
     //echo'<script src="js/custom.js"></script>';
 }
-//database-sort
+//userrecords-sort
 if(isset($_POST['colOrder']) ){
     $colName = $_POST['colName'];
     $colOrder = $_POST['colOrder'];

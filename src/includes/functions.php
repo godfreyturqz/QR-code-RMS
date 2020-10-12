@@ -6,7 +6,6 @@ function getDateToday(){
     date_default_timezone_set("Asia/Manila");
     $dt = new DateTime();
     $date = $dt->format('Y-m-d');
-    $time = $dt->format('H:i:s');
 
     return $date;
 }
@@ -14,19 +13,22 @@ function getTimeToday(){
     //today's date and time
     date_default_timezone_set("Asia/Manila");
     $dt = new DateTime();
-    $date = $dt->format('Y-m-d');
     $time = $dt->format('H:i:s');
 
     return $time;
 }
 
 function countAttendanceToday(){
-    //today's date and time
-    date_default_timezone_set("Asia/Manila");
-    $dt = new DateTime();
-    $date = $dt->format('Y-m-d');
-    $time = $dt->format('H:i:s');
+    $date = getDateToday();
+    include 'conn.php';
+    $sql= "SELECT DISTINCT idnum FROM login WHERE date='$date';";
+    $object = mysqli_query($conn, $sql);
+    $rowcount = mysqli_num_rows($object);
 
+    return $rowcount;
+}
+function countAdminAttendanceToday(){
+    $date = getDateToday();
     include 'conn.php';
     $sql= "SELECT DISTINCT idnum FROM login WHERE date='$date';";
     $object = mysqli_query($conn, $sql);

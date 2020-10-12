@@ -98,8 +98,6 @@ if (isset($_POST['signin']) ) {
     </form>
 </div>
 
-
-
 <script src="lib/jquery-3.5.1.min.js"></script>
 <script>
     $('#username').focus()
@@ -131,15 +129,15 @@ if (isset($_POST['signin']) ) {
     var errEmptyPwd = '<?php echo $errEmptyPwd; ?>';
     var errAuth = '<?php echo $errAuth; ?>';
 
-    if(errEmptyUsername == true ){
-        $('#username').addClass('input-danger')
-        $('#errEmptyUsername').show()
-        $('#username').focus()
-    }
     if(errEmptyPwd == true){
         $('#pwd').addClass('input-danger')
         $('#errEmptyPwd').show()
         $('#pwd').focus()
+    }
+    if(errEmptyUsername == true ){
+        $('#username').addClass('input-danger')
+        $('#errEmptyUsername').show()
+        $('#username').focus()
     }
     if(errAuth == true){
         $('#username, #pwd').addClass('input-danger')

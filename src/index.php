@@ -29,10 +29,10 @@ else{
         <!-- main nav --> 
         <?php include 'mainNav.php'; ?>
         <!-- cards -->        
-        <div class="w-50 container pb-4 fadeIn" style="display:none;">
+        <div class="w-50 container mb-4 fadeIn dp-none">
             <div class="row">
                 <h5 class="text-dark">Daily Updates</h5>
-                <div class="col-3 bg-white p-4 shadow-lg rounded-lg" style="width:250px;">
+                <div class="col bg-white p-4 shadow-lg rounded-lg" style="width:250px;">
                     <div class="row">
                         <div class="col-3 align-items-center"><i class="fa fa-address-card fa-3x text-purple"></i></div>
                         <div class="col ml-4">
@@ -41,9 +41,9 @@ else{
                         </div>
                     </div>
                 </div>
-                <div class="col-3 bg-white p-4 ml-2 shadow-lg rounded-lg" style="width:250px;">
+                <div class="col bg-white p-4 ml-2 shadow-lg rounded-lg" style="width:250px;">
                     <div class="row">
-                        <div class="col-3"><i class="fa fa-user fa-3x text-green"></i></div>
+                        <div class="col-2"><i class="fa fa-user fa-3x text-green"></i></div>
                         <div class="col ml-4">
                             <h3 class="font-weight-bold"><?= countAttendanceToday(); ?></h3>
                             <h6 class="text-secondary">Recent log-in</h6>
@@ -53,7 +53,6 @@ else{
             </div>
         </div>
         <!-- icons -->  
-        <!-- <div class="d-flex flex-wrap justify-content-center container py-5 bg-primary shadow-lg rounded-lg"> -->
         <div class="w-50 container py-5 bg-primary shadow-lg rounded-lg">
             <div class="d-flex flex-wrap justify-content-center">
                 <div class="flex-column m-1">
@@ -69,12 +68,11 @@ else{
                     </button></a>
                 </div>
                 <div class="flex-column m-1">
-                    <a href="login.php"><button class="btn btn-primary p-5">
-                        <i class="fa fa-sign-in fa-3x p-5 pb-3"></i>
-                        <h4>Log-in</h4>
+                    <a href="settings.php"><button class="btn btn-primary p-5">
+                        <i class="fa fa-cog fa-3x p-5 pb-3"></i>
+                        <h4>Settings</h4>
                     </button></a>
                 </div>
-                
             </div>
             <div class="d-flex flex-wrap justify-content-center">
                 <div class="flex-column m-1">
@@ -89,12 +87,13 @@ else{
                         <h4>User Records</h4>
                     </button></a>
                 </div>
-                <div class="flex-column m-1">
-                    <a href="settings.php"><button class="btn btn-primary p-5">
-                        <i class="fa fa-cog fa-3x p-5 pb-3"></i>
-                        <h4>Settings</h4>
+                <div class="flex-column m-1 v-hidden">
+                    <a href="database.php?page=1&limitRecords=10"><button class="btn btn-primary p-5">
+                        <i class="fa fa-database fa-3x p-5 pb-3"></i>
+                        <h4>dummy</h4>
                     </button></a>
-                </div>  
+                </div>
+                
             </div>
         </div>
         <!-- footer -->

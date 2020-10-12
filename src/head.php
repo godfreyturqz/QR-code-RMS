@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="styles/custom.css">
 <link rel="stylesheet" href="styles/font-awesome-4.7.0/css/font-awesome.min.css">
 
-<title></title>
+<title>Record Management System</title>
 
 
 

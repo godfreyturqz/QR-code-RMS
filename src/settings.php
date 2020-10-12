@@ -1,12 +1,10 @@
 <?php
 include 'includes/modal.php';
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <?php include 'head.php'; ?>
-    
 </head>
 <body>
 <div class="row m-0">
@@ -23,7 +21,7 @@ include 'includes/modal.php';
                 <h4 class="text-white ml-auto"><i class="fa fa-cog mr-1"></i>Settings</h4>
             </div>
             <!-- content -->
-            <div class="d-flex bg-white p-5 rounded-lg fadeIn" style="display:none;">
+            <div class="d-flex bg-light p-5 rounded-lg fadeIn" style="display:none;">
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Change Username</a>
                     <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Change Password</a>
@@ -33,7 +31,7 @@ include 'includes/modal.php';
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                         <form class="form-group" id="changeUsernameForm" autocomplete="off">
                             <label for="currentUsername" class="col-form-label">Current Username</label>
-                            <input type="text" id="currentUsername" class="form-control input-primary mt-1">
+                            <input type="text" id="currentUsername" class="form-control input-primary mt-1" autofocus>
                             <p id="errCurrentUsername" class="mt-1 error_msg"><i class="fa fa-exclamation-circle mr-2"></i>Username does not exists.</p>
 
                             <label for="newUsername" class="col-form-label mt-2">New Username</label>
@@ -79,6 +77,8 @@ include 'includes/modal.php';
                 </div>
             </div>
         </div>
+        <!-- footer -->
+        <?php include 'footer.php'; ?>
     </main>
 </div>
 
@@ -95,35 +95,36 @@ if( isset($_GET['changePassword'])){
     echo "<script>$('#changePasswordModal').modal('show');</script>";
 }
 ?>
-<!--  
-                add account
-                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                    <form method="POST" autocomplete="off" enctype="multipart/form-data" class="form-group">
-                        <label for="currentPwd" class="col-form-label">Name</label>
-                        <input type="text" id="currentPwd" class="form-control input-primary mt-1" name="currentPwd" required>
+<!-- 
+for future update
+add account
+<div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+    <form method="POST" autocomplete="off" enctype="multipart/form-data" class="form-group">
+        <label for="currentPwd" class="col-form-label">Name</label>
+        <input type="text" id="currentPwd" class="form-control input-primary mt-1" name="currentPwd" required>
 
-                        <label for="currentPwd" class="col-form-label">Role</label>
-                        <input type="text" id="currentPwd" class="form-control input-primary mt-1" name="currentPwd" required>
+        <label for="currentPwd" class="col-form-label">Role</label>
+        <input type="text" id="currentPwd" class="form-control input-primary mt-1" name="currentPwd" required>
 
-                        <label for="currentPwd" class="col-form-label">Username</label>
-                        <input type="text" id="currentPwd" class="form-control input-primary mt-1" name="currentPwd" required>
+        <label for="currentPwd" class="col-form-label">Username</label>
+        <input type="text" id="currentPwd" class="form-control input-primary mt-1" name="currentPwd" required>
 
-                        <label for="newPwd" class="col-form-label mt-2">Password</label>
-                        <input type="text" id="newPwd" class="form-control input-primary mt-1" name="newPwd" required>
+        <label for="newPwd" class="col-form-label mt-2">Password</label>
+        <input type="text" id="newPwd" class="form-control input-primary mt-1" name="newPwd" required>
 
-                        <label for="newPwd" class="col-form-label mt-2">Confirm Password</label>
-                        <input type="text" id="newPwd" class="form-control input-primary mt-1" name="newPwd" required>
+        <label for="newPwd" class="col-form-label mt-2">Confirm Password</label>
+        <input type="text" id="newPwd" class="form-control input-primary mt-1" name="newPwd" required>
 
-                        <div class="mt-4">
-                            <button type="submit" name="changePwd" class="btn btn-primary" >Add account</button>
-                            <input type="reset" class="btn text-primary" value="Cancel changes">    
-                        </div>
-                    </form>
-                </div>
-                account management
-                <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                    Displays all account. 
-                </div>
-                -->
+        <div class="mt-4">
+            <button type="submit" name="changePwd" class="btn btn-primary" >Add account</button>
+            <input type="reset" class="btn text-primary" value="Cancel changes">    
+        </div>
+    </form>
+</div>
+account management
+<div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+    Displays all account. 
+</div>
+-->
 </body>
 </html>

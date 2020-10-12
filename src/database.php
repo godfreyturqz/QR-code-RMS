@@ -104,7 +104,7 @@ include 'includes/modal.php';
                             $nextPage = $pages;
                         }
                         $itemNo = $start;
-                        $sql = "SELECT * FROM list ORDER BY id ASC LIMIT $start, $limit;";
+                        $sql = "SELECT * FROM list ORDER BY id DESC LIMIT $start, $limit;";
                         $object = mysqli_query($conn, $sql);
                         while ($row = mysqli_fetch_assoc($object)):?>
                         <tr>
