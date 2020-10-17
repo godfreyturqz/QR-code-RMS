@@ -141,7 +141,7 @@ if(isset($_POST['readId'])){
                         <center class="mb-3">
                             <p class="font-weight-bold">Item #'.$_POST['itemNo'].'</p>
                             <div>
-                                <img src="'.$qrcodeLoc.'" class="border border-dark mb-1" style="width:200px;height:200px">
+                                <img src="'.$qrcodeLoc.'" class="border shadow mb-1" style="width:200px;height:200px">
                             </div>
                             <a href="includes/process.php?downloadId='.$id.'"><button type="button" class="btn btn-primary w-50 mt-3">Download QR Code</button></a>
                         </center>

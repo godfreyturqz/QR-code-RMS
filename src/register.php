@@ -23,11 +23,6 @@ CREATE TABLE list(
 <html lang="en">
 <head>
     <?php include 'head.php'; ?>
-    <style>
-        a:hover{
-            background-color: #1F4E79;
-        }
-    </style>
 </head>
 <body>
 <div class="row m-0">
@@ -50,7 +45,7 @@ CREATE TABLE list(
                     <!-- name -->
                     <div class="row align-items-center mb-3">
                         <div class="col-2"><label for="fname" class="col-form-label">Name:</label></div>
-                        <div class="col"><input type="text" id="fname" class="form-control input-primary" name="fname" placeholder="First" autofocus></div>
+                        <div class="col"><input type="text" id="fname" class="form-control input-primary" name="fname" placeholder="First"></div>
                         <div class="col"><input type="text" id="lname" class="form-control input-primary" name="lname" placeholder="Last" ></div>
                     </div>
                     <!-- position -->
@@ -160,7 +155,7 @@ CREATE TABLE list(
                         <p><?= $address;?></p>
                     </div>
                     <center class="col">
-                        <img src="<?= $file;?>" class="border-dark border mb-1" style="width:200px;height:200px">
+                        <img src="<?= $file;?>" class="border shadow mb-1" style="width:200px;height:200px">
                         <!-- download button -->
                         <a href="includes/process.php?downloadId=<?= $id;?>"><button type="button" class="btn btn-primary btn-block">Download QR Code</button></a>
                     </center>
@@ -177,6 +172,7 @@ CREATE TABLE list(
 <script src="lib/jquery-3.5.1.min.js"></script>
 <script src="lib/bootstrap-5.0.0-alpha1/js/bootstrap.min.js"></script>
 <script src="js/custom.js"></script>
+<script>$('#fname').focus()</script>
 <div id="data"></div>
 
 <?php
