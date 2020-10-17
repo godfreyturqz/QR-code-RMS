@@ -3,6 +3,8 @@ function autofocus(){
     $('#inputautofocus').focus()
 }
 var interval = setInterval(autofocus, 50)
+//autofocus on register form
+$('#fname').focus()
 //animations
 $('.fadeIn').fadeIn(500)
 $('.fadeIn-1').fadeIn(2000)
@@ -11,9 +13,8 @@ $('.alert').fadeOut(4000)
 //navbar 
 $('#sidebarCollapse').click(function(){
     $('#sidebar').toggle(250)
-    $('#inputautofocus').focus()
+    $('#fname').focus()
 })
-
 //register
 $('#regForm').submit(function(e){
     e.preventDefault()
@@ -185,7 +186,7 @@ $('.readBtn').click(function(e){
         readId: id,
         itemNo: itemNo
     }, function(data){
-        $('#modal').html(data)
+        $('#data').html(data)
     })
 })
 //update btn
@@ -201,7 +202,7 @@ $('.updateBtn').click(function(e){
         currentPage: currentPage,
         limitRecords: limitRecords
     }, function(data){
-        $('#modal').html(data)
+        $('#data').html(data)
         $("#updateModal").on('shown.bs.modal', function(){
             $('#name').focus();
         })
@@ -220,17 +221,13 @@ $('.deleteBtn').click(function(e){
         currentPage: currentPage,
         limitRecords: limitRecords
     }, function(data){
-        $('#modal').html(data)
+        $('#data').html(data)
     })
 })
 //limit records
 $('#limitRecords').change(function(){
     $('#limitRecordsForm').submit()
 })
-//display dashboard
-// $('#limitRecords').change(function(){
-//     $('#limitRecordsForm').submit()
-// })
 //live search
 $('#search').keyup(function(){
     var searchVal = $(this).val()
