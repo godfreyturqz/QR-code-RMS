@@ -299,25 +299,12 @@ if (isset ($_GET['downloadId'])){
 }
 //userrecords-search
 if (isset($_POST['searchBtn'])) {
-    $limit = isset($_POST['limitRecords']) ? $_POST['limitRecords'] : 10;
-    $page = isset($_GET['page']) ? $_GET['page'] : 1;
-    $start = ($page -1) * $limit;
-    $total = countRegTotal();
-    $pages = ceil($total / $limit);
-    $prevPage = $page - 1 ;
-    if ($prevPage == 0){
-        $prevPage = 1;
-    }
-    $nextPage= $page + 1 ;
-    if ($nextPage > $pages){
-        $nextPage = $page;
-    }
-    $itemNo = $start;
+    $itemNo = 0;
     $search =  $_POST['searchBtn'];
     $sql = "SELECT * FROM list
             WHERE fname LIKE '%$search%' OR lname LIKE '%$search%' OR position LIKE '%$search%' OR others LIKE '%$search%' 
                     OR idnum LIKE '%$search%' OR contact LIKE '%$search%' OR address LIKE '%$search%' OR email LIKE '%$search%' OR qrcode LIKE '%$search%'
-            ORDER BY id ASC LIMIT $start, $limit;";
+            ORDER BY id DESC;";
     $object = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_assoc($object)) {
         $id = $row['id'];
@@ -325,7 +312,7 @@ if (isset($_POST['searchBtn'])) {
         echo'
             <tr>
                 <td>'.$itemNo.'</td>
-                <td>'.$row['fname']." ".$row['lname'].'</td>
+                <td>'.$row['fname']." ".$row['fname'].'</td>
                 <td>'.$row['position']." ".$row['others'].'</td>
                 <td>'.$row['idnum'].'</td>
                 <td>'.$row['age'].'</td>
@@ -335,14 +322,15 @@ if (isset($_POST['searchBtn'])) {
                 <td>'.$row['regdate']." ".$row['regtime'].'</td>
                 <td>'.$row['qrcode'].'</td>
                 <td class="d-flex align-items-center">
-                    <button class="btn btn-sm btn-outline fa fa-qrcode readBtn" data-id="'.$id.'"></button>
-                    <button class="btn btn-sm btn-outline fa fa-pencil updateBtn" data-id="'.$id.'"></button>
-                    <button class="btn btn-sm btn-outline fa fa-trash deleteBtn" data-id="'.$id.'"></button>
+                    <button class="btn btn-sm btn-outline fa fa-qrcode readBtn" data-id="'.$id.'" data-itemNo="'.$itemNo.'"></button>
+                    <button class="btn btn-sm btn-outline fa fa-pencil updateBtn" data-id="'.$id.'" data-itemNo="'.$itemNo.'" data-currentPage="1" data-limitRecords="10"></button>
+                    <button class="btn btn-sm btn-outline fa fa-trash deleteBtn" data-id="'.$id.'" data-itemNo="'.$itemNo.'" data-currentPage="1" data-limitRecords="10"></button>
                 </td>
             </tr>
         ';
     }
-    //echo'<script src="js/custom.js"></script>';
+    //crud functions of buttons are enabled
+    echo'<script src="js/custom.js"></script>';
 }
 //userrecords-sort
 if(isset($_POST['colOrder']) ){
@@ -403,9 +391,9 @@ if(isset($_POST['colOrder']) ){
                 <td>'.$row['regdate']." ".$row['regtime'].'</td>
                 <td>'.$row['qrcode'].'</td>
                 <td class="d-flex align-items-center">
-                    <button class="btn btn-sm btn-outline fa fa-qrcode readBtn" data-id="'.$id.'"></button>
-                    <button class="btn btn-sm btn-outline fa fa-pencil updateBtn" data-id="'.$id.'"></button>
-                    <button class="btn btn-sm btn-outline fa fa-trash deleteBtn" data-id="'.$id.'"></button>
+                    <button class="btn btn-sm btn-outline fa fa-qrcode readBtn" data-id="'.$id.'" data-itemNo="'.$itemNo.'"></button>
+                    <button class="btn btn-sm btn-outline fa fa-pencil updateBtn" data-id="'.$id.'" data-itemNo="'.$itemNo.'" data-currentPage="1" data-limitRecords="10"></button>
+                    <button class="btn btn-sm btn-outline fa fa-trash deleteBtn" data-id="'.$id.'" data-itemNo="'.$itemNo.'" data-currentPage="1" data-limitRecords="10"></button>
                 </td>
             </tr>
         ';
