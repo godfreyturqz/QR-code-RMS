@@ -4,8 +4,8 @@
 </div>
 
 <script>
-    var myVar = setInterval(myTimer, 50);
-    function myTimer() {
+    setInterval(clock, 50);
+    function clock() {
         var dt = new Date();
         document.getElementById("time").innerHTML = dt.toLocaleTimeString();
         document.getElementById("date").innerHTML = dt.toDateString();
