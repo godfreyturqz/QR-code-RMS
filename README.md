@@ -16,4 +16,4 @@
 4. Bootstrap
 
 ## Live Demo
-http://rms.infinityfreeapp.com/
+https://rms-qrcode.herokuapp.com/
