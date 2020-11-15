@@ -4,12 +4,12 @@ include './lib/phpqrcode/qrlib.php';
 session_start();
 $signup_login_id = $_SESSION[''];
 
-if (empty($signup_login_id)) {
-  session_unset();
-  session_destroy();
-  header("location:signin.php?signin_to_continue");
-}
-else{
+// if (empty($signup_login_id)) {
+//   session_unset();
+//   session_destroy();
+//   header("location:signin.php?signin_to_continue");
+// }
+// else{
 ?>
 <!DOCTYPE html> 
 <html lang="en">
@@ -105,4 +105,4 @@ else{
 
 </body>
 </html>
-<?php   }//else ?>
+<?php //} else ?>

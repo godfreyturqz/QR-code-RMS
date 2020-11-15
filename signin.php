@@ -81,19 +81,20 @@ if (isset($_POST['signin']) ) {
         </div>
         <div class="form-group position-relative">
             <label for="username" class="label" id="usernameLabel">Username</label>
-            <input type="text" class="form-control p-3 input-primary" id="username" name="username" placeholder="Username" value="<?=$username;?>">
+            <!-- <input type="text" class="form-control p-3 input-primary" id="username" name="username" placeholder="Username" value="<?=$username;?>"> -->
+            <input type="text" class="form-control p-3 input-primary" id="username" name="username" placeholder="Username" value="godfrey_turqueza">
         </div>
         <p class="text-danger mb-3 mt-1" style="font-size:14px;display:none;bottom:100px;" id="errEmptyUsername"><i class="fa fa-exclamation-circle mr-2"></i>Enter a username</p>
         
         <div class="form-group mt-4 position-relative">
             <label for="pwd" class="label" id="pwdLabel">Password</label>
-            <input type="password" class="form-control p-3 input-primary" id="pwd" name="pwd" placeholder="Password">
+            <input type="password" class="form-control p-3 input-primary" id="pwd" name="pwd" placeholder="Password" value="**********">
         </div>
         <p class="text-danger mt-1" style="font-size:14px;display:none;" id="errEmptyPwd"><i class="fa fa-exclamation-circle mr-2"></i>Enter a password</p>
         <p class="text-danger mt-1" style="font-size:14px;display:none;" id="errAuth"><i class="fa fa-exclamation-circle mr-2"></i>Try again. Wrong username or password.</p>
         <div class="mt-5">
             <span ><a href="signin.php" style="text-decoration:none;">Forgot password?</a></span>
-            <button type="submit" class="btn btn-sm btn-primary float-right font-weight-bold px-4" id="signin" name="signin">Continue</button>
+            <button type="submit" class="btn btn-sm btn-primary float-right font-weight-bold px-4" id="signin" name="signin"><a href="index.php">Continue</a></button>
         </div>
     </form>
 </div>
