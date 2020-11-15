@@ -7,8 +7,13 @@
         color: white;
         background-color: #1F4E79;
     }
+    #sidebar{
+        background-color:#293142;
+        width:300px;
+        display:none;
+    }
 </style>
-<nav id="sidebar" class="p-0 flex-column" style="background-color:#293142;height:100vh;width:300px;display:none;">
+<nav id="sidebar" class="p-0 flex-column pr-3">
     <div class="m-3 mb-4">
         <img src="images/logo.png" alt="logo" style="width:50px;">
         <span class="text-white ml-3">Name of organization</span>

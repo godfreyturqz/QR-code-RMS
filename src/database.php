@@ -61,7 +61,7 @@ include 'includes/modal.php';
             </div>
         </div>
         <!--table container-->
-        <div class="p-2">
+        <div class="p-4">
             <!--table-->
             <table id="table" class="table table-hover bg-white">
                 <thead class="bg-primary">
@@ -72,7 +72,7 @@ include 'includes/modal.php';
                         <th scope="col"><a href="#" class="columnSort text-decoration-none text-white" data-colName="idnum" data-colOrder="desc">ID number</a></th>
                         <th scope="col"><a href="#" class="columnSort text-decoration-none text-white" data-colName="age" data-colOrder="desc">Age</a></th>
                         <th scope="col"><a href="#" class="columnSort text-decoration-none text-white" data-colName="contact" data-colOrder="desc">Contact</a></th>
-                        <th scope="col"><a href="#" class="columnSort text-decoration-none text-white" data-colName="address" data-colOrder="desc">Address</a></th>
+                        <th scope="col" class="col-2"><a href="#" class="columnSort text-decoration-none text-white" data-colName="address" data-colOrder="desc">Address</a></th>
                         <th scope="col"><a href="#" class="columnSort text-decoration-none text-white" data-colName="email" data-colOrder="desc">Email</a></th>
                         <th scope="col"><a href="#" class="columnSort text-decoration-none text-white" data-colName="regdate" data-colOrder="desc">Registration</a></th>
                         <th scope="col"><a href="#" class="columnSort text-decoration-none text-white" data-colName="qrcode" data-colOrder="desc">QR Code</a></th>
@@ -115,7 +115,7 @@ include 'includes/modal.php';
                             <td><?php echo $row["regdate"]." ".$row["regtime"];?></td>
                             <td><?php echo $row["qrcode"];?></td>
                             <!-- process -->
-                            <td class="d-flex align-items-center">
+                            <td class="align-content-stretch">
                                 <button class="btn btn-sm btn-outline fa fa-qrcode readBtn" data-id="<?= $id; ?>" data-itemNo="<?= $itemNo; ?>"></button>
                                 <button class="btn btn-sm btn-outline fa fa-pencil updateBtn" data-id="<?= $id; ?>" data-itemNo="<?= $itemNo; ?>" data-currentPage="<?= $_GET['page']; ?>" data-limitRecords="<?= $_GET['limitRecords']; ?>"></button>
                                 <button class="btn btn-sm btn-outline fa fa-trash deleteBtn" data-id="<?= $id; ?>" data-itemNo="<?= $itemNo; ?>" data-currentPage="<?= $_GET['page']; ?>" data-limitRecords="<?= $_GET['limitRecords']; ?>"></button>

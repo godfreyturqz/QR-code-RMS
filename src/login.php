@@ -85,7 +85,7 @@ CREATE TABLE login(
                                         echo '<img src="images/qrcode/'.$qrcode.'.png" style="width:200px;height:200px">';
                                     }
                                     else{
-                                        echo '<img src="images/qrcode/default3.png" style="width:200px;height:200px">';
+                                        echo '<img src="images/qrcode/default.png" style="width:200px;height:200px">';
                                     }
                                 ?>
                             </div>

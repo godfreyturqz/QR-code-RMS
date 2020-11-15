@@ -7,6 +7,7 @@ var interval = setInterval(autofocus, 50)
 $('#fname').focus()
 //animations
 $('.fadeIn').fadeIn(500)
+//animation for login success and fail
 $('.fadeIn-1').fadeIn(2000)
 //alert
 $('.alert').fadeOut(4000)
@@ -28,7 +29,8 @@ $('#regForm').submit(function(e){
     var email = $('#email').val()
     var contact = $('#contact').val()
     var address = $('#address').val()
-    $.post('includes/process.php', {
+    var link = $('#result').val()
+    $.post('includes/process.php', { 
         regBtn: regBtn,
         fname: fname,
         lname: lname,
@@ -38,7 +40,8 @@ $('#regForm').submit(function(e){
         age: age,
         email: email,
         contact: contact,
-        address: address
+        address: address,
+        link: link
     }, function(data){
         $('#data').html(data)
     })

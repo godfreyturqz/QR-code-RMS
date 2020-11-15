@@ -126,7 +126,12 @@ if(isset($_POST['readId'])){
     $sql = "SELECT * FROM list WHERE id='$id';";
     $object = mysqli_query($conn, $sql);
     $array = mysqli_fetch_assoc($object);
-    $qrcodeLoc = "./images/qrcode/".$array['qrcode'].".png";
+
+    $fname = $array['fname'];
+    $lname = $array['lname'];
+    $qrcode = $array['qrcode'];
+    
+    $qrcodeLoc="./images/qrcode/".$fname." ".$lname." ".$qrcode.".png";
 
     echo "<script>$('#viewQrCodeModal').modal('show');</script>";
     echo '

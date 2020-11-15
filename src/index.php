@@ -1,7 +1,9 @@
 <?php
 include 'includes/functions.php';
+include './lib/phpqrcode/qrlib.php';
 session_start();
 $signup_login_id = $_SESSION[''];
+
 if (empty($signup_login_id)) {
   session_unset();
   session_destroy();
@@ -25,6 +27,7 @@ else{
         <?php include 'mainNav.php'; ?>
         <!-- cards -->        
         <div class="container mb-4 fadeIn dp-none" style="width:750px;">
+            <a href="index2.php" class="dp-none">google drive test</a>
             <div class="row">
                 <h5 class="text-dark">Daily Updates</h5>
                 <div class="col bg-white p-4 shadow-lg rounded-lg" style="width:250px;">

@@ -23,6 +23,8 @@ CREATE TABLE list(
 <html lang="en">
 <head>
     <?php include 'head.php'; ?>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    
 </head>
 <body>
 <div class="row m-0">
@@ -33,7 +35,7 @@ CREATE TABLE list(
         <!-- main nav --> 
         <?php include 'mainNav.php'; ?>
         <!-- bg-primary container -->
-        <div class="container bg-primary p-4 rounded-lg" style="width:750px;">
+        <div class="container bg-primary p-4 rounded-lg mb-5" style="width:750px;">
             <!-- header -->
             <div class="d-flex align-items-center mb-4">
                 <a href="index.php"><button class="btn btn-dark btn-sm"><i class="fa fa-long-arrow-left mr-2"></i>Back</button></a>
@@ -74,22 +76,37 @@ CREATE TABLE list(
                         
 
                         <div class="col-1 p-0"><label for="age" class="col-form-label">Age:</label></div>
-                        <div class="col"><input type="text" id="age" class="form-control input-primary" name="age" placeholder="" ></div>
+                        <div class="col"><input type="text" id="age" class="form-control input-primary" name="age" placeholder="enter a number" ></div>
                     </div>
                     <!-- email and contact-->
                     <div class="row align-items-center mb-3">
                         <div class="col-2"><label for="email" class="col-form-label">Email address:</label></div>
-                        <div class="col"><input type="text" id="email" class="form-control input-primary" name="email" placeholder="" ></div>
+                        <div class="col"><input type="text" id="email" class="form-control input-primary" name="email" placeholder="enter a valid email" ></div>
 
                         <div class="col-1 p-0"><label for="contact" class="col-form-label">Contact number:</label></div>
-                        <div class="col"><input type="text" id="contact" class="form-control input-primary" name="contact" placeholder="" ></div>
+                        <div class="col"><input type="text" id="contact" class="form-control input-primary" name="contact" placeholder="enter a number" ></div>
                     </div>
                     <!-- address -->
                     <div class="row align-items-center mb-3">
                         <div class="col-2"><label for="address" class="col-form-label">Address:</label></div>
                         <div class="col"><textarea rows="2" id="address" class="form-control input-primary" name="address" placeholder=""></textarea></div>
                     </div>
-                    <!-- button  -->
+                    <hr class="my-5">
+                    <!-- file upload -->
+                    <div class="row align-items-center mb-5">
+                        <div class="col-2"><label for="files" class="col-form-label">Upload file:</label></div>
+                        <div class="col">
+                            <button id="auth" type="button" class="btn btn-primary">Google Authorization</button>
+                            <input id="files" type="file" name="files[]" multiple/>
+                            <button class="btn btn-primary mt-3" id="upload" type="button"><i class="fa fa-upload mr-2"></i>Upload to Google Drive</button>
+                        </div>
+                    </div>
+                    <!-- google link -->
+                    <div class="row align-items-center mb-5">
+                        <div class="col-2"><label for="result" class="col-form-label">Goggle Drive link:</label></div>
+                        <div class="col"><textarea rows="2" id="result" class="form-control input-primary" name="result" placeholder="click 'Upload to Google Drive' and wait for the link"></textarea></div>
+                    </div>
+                    <!-- submit button  -->
                     <div class="row align-items-center mb-3">
                         <div class="col-2"><label class="col-form-label"></label></div>
                         <div class="col">
@@ -131,7 +148,7 @@ CREATE TABLE list(
                     $contact = $array['contact'];
                     $address = $array['address'];
                     $qrcode = $array['qrcode'];
-                    $file='images/qrcode/'.$qrcode.'.png';
+                    $file="./images/qrcode/".$fname." ".$lname." ".$qrcode.".png";
                 ?>
                 <div class="row">
                     <div class="col">
@@ -172,6 +189,8 @@ CREATE TABLE list(
 <script src="lib/jquery-3.5.1.min.js"></script>
 <script src="lib/bootstrap-5.0.0-alpha1/js/bootstrap.min.js"></script>
 <script src="js/custom.js"></script>
+<script src="js/upload.js"></script>
+<script src="js/googleAuth.js"></script>
 <script>$('#fname').focus()</script>
 <div id="data"></div>
 

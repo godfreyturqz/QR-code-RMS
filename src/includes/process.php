@@ -15,6 +15,7 @@ if (isset($_POST['regBtn'])) {
     $contact = mysqli_real_escape_string($conn,$_POST['contact']);
     $address = mysqli_real_escape_string($conn,$_POST['address']);
     $email = mysqli_real_escape_string($conn,$_POST['email']);
+    $link = mysqli_real_escape_string($conn,$_POST['link']);
 
     //idnum duplicate verification
     $sql= "SELECT * FROM list WHERE idnum='$idnum';";
@@ -51,17 +52,19 @@ if (isset($_POST['regBtn'])) {
         ';
     }
     else {
-        $qrcode = uniqid();
-        $filenameExt = $qrcode.".png";
+        $uniqId = uniqid();
+        $qrcodeFileName = $fname." ".$lname." ".$uniqId;
+        $filenameExt = $qrcodeFileName.".png";
         $path = '../images/qrcode/';
         $file = $path.$filenameExt;
+        $qrcodeValue = $fname." ".$lname." ".$link;
         //$text = "Name: ".$name."\nID#: ".$idnum."\nAge: ".$age."\nContact#: ".$contact."\nAddress: ".$address."\nEmail: ".$email;
-        QRcode::png($qrcode, $file, 'M', 8, 1);
+        QRcode::png($qrcodeValue, $file, 'M', 9, 1);
         //png($filename, $filepath, 'L or M or H or Q', pixel size, frame size)
         $date = getDateToday();
         $time = getTimeToday();
         $sql = "INSERT INTO list (fname, lname, position, others, idnum , age, contact, address, email, qrcode, regdate, regtime) 
-                VALUES ('$fname','$lname','$position','$others','$idnum','$age','$contact','$address','$email','$qrcode','$date','$time');";
+                VALUES ('$fname','$lname','$position','$others','$idnum','$age','$contact','$address','$email','$uniqId','$date','$time');";
         mysqli_query($conn, $sql);
 
         echo '<script>location.href="register.php?register=true&idnum='.$idnum.'"</script>' ;
@@ -288,13 +291,20 @@ if (isset ($_POST['export'])){
 if (isset ($_GET['downloadId'])){
     $id = mysqli_real_escape_string($conn,$_GET['downloadId']);
     $sql = "SELECT * FROM list WHERE id='$id';";
+    
     $object = mysqli_query($conn, $sql);
     $array = mysqli_fetch_assoc($object);
-    $qrcodeLoc = "../images/qrcode/".$array['qrcode'].".png";
+
+    $fname = $array['fname'];
+    $lname = $array['lname'];
+    $qrcode = $array['qrcode'];
+    
+    $qrcodeLoc="../images/qrcode/".$fname." ".$lname." ".$qrcode.".png";
+    // $qrcodeLoc = "../images/qrcode/".$array['qrcode'].".png";
 
     header('Content-type: image/png');
     header("Cache-Control: no-store, no-cache");  
-    header('Content-Disposition: attachment; filename="My-QR-Code.png"');
+    header('Content-Disposition: attachment; filename="QR-Code.png"');
     readfile($qrcodeLoc);
 }
 //userrecords-search
