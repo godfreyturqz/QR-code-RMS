@@ -98,7 +98,7 @@ include 'includes/modal.php';
                         </td>
                     </tr>
                     <tr>
-                        <td>1</td>
+                        <td>2</td>
                         <td>Godfrey Turqueza</td>
                         <td>Admin</td>
                         <td>6835158</td>
@@ -115,7 +115,7 @@ include 'includes/modal.php';
                         </td>
                     </tr>
                     <tr>
-                        <td>1</td>
+                        <td>3</td>
                         <td>Godfrey Turqueza</td>
                         <td>Admin</td>
                         <td>6835158</td>
@@ -132,7 +132,7 @@ include 'includes/modal.php';
                         </td>
                     </tr>
                     <tr>
-                        <td>1</td>
+                        <td>4</td>
                         <td>Godfrey Turqueza</td>
                         <td>Admin</td>
                         <td>6835158</td>
@@ -149,7 +149,7 @@ include 'includes/modal.php';
                         </td>
                     </tr>
                     <tr>
-                        <td>1</td>
+                        <td>5</td>
                         <td>Godfrey Turqueza</td>
                         <td>Admin</td>
                         <td>6835158</td>
