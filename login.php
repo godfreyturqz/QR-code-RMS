@@ -39,7 +39,7 @@ CREATE TABLE login(
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <a class="nav-link active" id="v-pills-first-tab" data-toggle="pill" href="#v-pills-first" role="tab" aria-controls="v-pills-first" aria-selected="true">Log-in form</a>
                     <a class="nav-link" id="v-pills-second-tab" data-toggle="pill" href="#v-pills-second" role="tab" aria-controls="v-pills-second" aria-selected="false">Recent logs</a>
-                    <a class="nav-link" href="timerecords.php" >View all logs</a>
+                    <a class="nav-link" href="database.php?page=1&limitRecords=10" >View all logs</a>
                 </div>
                 <div class="tab-content ml-4 w-75" id="v-pills-tabContent">
                     <!-- login form -->

@@ -74,22 +74,21 @@ $signup_login_id = $_SESSION[''];
             </div>
             <div class="d-flex flex-wrap justify-content-center">
                 <div class="flex-column m-1">
-                    <a href="search.php"><button class="btn btn-primary p-4">
-                        <i class="fa fa-clock-o fa-3x p-5 pb-3"></i>
-                        <h4>Time Records</h4>
-                    </button></a>
-                </div>
-                <div class="flex-column m-1">
                     <a href="database.php?page=1&limitRecords=10"><button class="btn btn-primary p-4">
                         <i class="fa fa-database fa-3x p-5 pb-3"></i>
                         <h4>User Records</h4>
                     </button></a>
                 </div>
-                <!-- dummy -->
-                <div class="flex-column m-1 v-hidden">
-                    <a href="#"><button class="btn btn-primary p-4">
-                        <i class="fa fa-database fa-3x p-5 pb-3"></i>
-                        <h4>dummy</h4>
+                <div class="flex-column m-1 ">
+                    <a><button class="btn btn-disabled bg-secondary p-4">
+                        <i class="fa fa-clock-o fa-3x p-5 pb-3"></i>
+                        <h4>Time Records</h4>
+                    </button></a>
+                </div>
+                <div class="flex-column m-1">
+                    <a><button class="btn btn-disabled bg-secondary p-4">
+                        <i class="fa fa-users fa-3x p-5 pb-3"></i>
+                        <h4>Employees</h4>
                     </button></a>
                 </div>
             </div>

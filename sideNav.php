@@ -11,6 +11,7 @@
         background-color:#293142;
         width:300px;
         display:none;
+        height: 100vh;
     }
 </style>
 <nav id="sidebar" class="p-0 flex-column pr-3">
