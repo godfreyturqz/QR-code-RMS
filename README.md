@@ -17,3 +17,6 @@
 
 ## Live Demo
 https://rms-qrcode.herokuapp.com/
+
+## Author's Note
+This is a free deployment by Heroku and installing add-ons like MySQL database needs additional requirements. Hence, the link above has no back-end functions.
