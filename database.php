@@ -80,6 +80,91 @@ include 'includes/modal.php';
                     </tr>
                 </thead>
                 <tbody id="tableBody">
+                    <tr>
+                        <td>1</td>
+                        <td>Godfrey Turqueza</td>
+                        <td>Admin</td>
+                        <td>6835158</td>
+                        <td>28</td>
+                        <td>09xx - xxx - xxxx</td>
+                        <td>Mabalacat, Pampanga</td>
+                        <td>godfreyturqz@gmail.com</td>
+                        <td>2020-11-07 23:05:15</td>
+                        <td>5fa6b7ab8f231</td>
+                        <td class="align-content-stretch">
+                            <button class="btn btn-sm btn-outline fa fa-qrcode readBtn" data-id="<?= $id; ?>" data-itemNo="<?= $itemNo; ?>"></button>
+                            <button class="btn btn-sm btn-outline fa fa-pencil updateBtn" data-id="<?= $id; ?>" data-itemNo="<?= $itemNo; ?>" data-currentPage="<?= $_GET['page']; ?>" data-limitRecords="<?= $_GET['limitRecords']; ?>"></button>
+                            <button class="btn btn-sm btn-outline fa fa-trash deleteBtn" data-id="<?= $id; ?>" data-itemNo="<?= $itemNo; ?>" data-currentPage="<?= $_GET['page']; ?>" data-limitRecords="<?= $_GET['limitRecords']; ?>"></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Godfrey Turqueza</td>
+                        <td>Admin</td>
+                        <td>6835158</td>
+                        <td>28</td>
+                        <td>09xx - xxx - xxxx</td>
+                        <td>Mabalacat, Pampanga</td>
+                        <td>godfreyturqz@gmail.com</td>
+                        <td>2020-11-07 23:05:15</td>
+                        <td>5fa6b7ab8f231</td>
+                        <td class="align-content-stretch">
+                            <button class="btn btn-sm btn-outline fa fa-qrcode readBtn" data-id="<?= $id; ?>" data-itemNo="<?= $itemNo; ?>"></button>
+                            <button class="btn btn-sm btn-outline fa fa-pencil updateBtn" data-id="<?= $id; ?>" data-itemNo="<?= $itemNo; ?>" data-currentPage="<?= $_GET['page']; ?>" data-limitRecords="<?= $_GET['limitRecords']; ?>"></button>
+                            <button class="btn btn-sm btn-outline fa fa-trash deleteBtn" data-id="<?= $id; ?>" data-itemNo="<?= $itemNo; ?>" data-currentPage="<?= $_GET['page']; ?>" data-limitRecords="<?= $_GET['limitRecords']; ?>"></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Godfrey Turqueza</td>
+                        <td>Admin</td>
+                        <td>6835158</td>
+                        <td>28</td>
+                        <td>09xx - xxx - xxxx</td>
+                        <td>Mabalacat, Pampanga</td>
+                        <td>godfreyturqz@gmail.com</td>
+                        <td>2020-11-07 23:05:15</td>
+                        <td>5fa6b7ab8f231</td>
+                        <td class="align-content-stretch">
+                            <button class="btn btn-sm btn-outline fa fa-qrcode readBtn" data-id="<?= $id; ?>" data-itemNo="<?= $itemNo; ?>"></button>
+                            <button class="btn btn-sm btn-outline fa fa-pencil updateBtn" data-id="<?= $id; ?>" data-itemNo="<?= $itemNo; ?>" data-currentPage="<?= $_GET['page']; ?>" data-limitRecords="<?= $_GET['limitRecords']; ?>"></button>
+                            <button class="btn btn-sm btn-outline fa fa-trash deleteBtn" data-id="<?= $id; ?>" data-itemNo="<?= $itemNo; ?>" data-currentPage="<?= $_GET['page']; ?>" data-limitRecords="<?= $_GET['limitRecords']; ?>"></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Godfrey Turqueza</td>
+                        <td>Admin</td>
+                        <td>6835158</td>
+                        <td>28</td>
+                        <td>09xx - xxx - xxxx</td>
+                        <td>Mabalacat, Pampanga</td>
+                        <td>godfreyturqz@gmail.com</td>
+                        <td>2020-11-07 23:05:15</td>
+                        <td>5fa6b7ab8f231</td>
+                        <td class="align-content-stretch">
+                            <button class="btn btn-sm btn-outline fa fa-qrcode readBtn" data-id="<?= $id; ?>" data-itemNo="<?= $itemNo; ?>"></button>
+                            <button class="btn btn-sm btn-outline fa fa-pencil updateBtn" data-id="<?= $id; ?>" data-itemNo="<?= $itemNo; ?>" data-currentPage="<?= $_GET['page']; ?>" data-limitRecords="<?= $_GET['limitRecords']; ?>"></button>
+                            <button class="btn btn-sm btn-outline fa fa-trash deleteBtn" data-id="<?= $id; ?>" data-itemNo="<?= $itemNo; ?>" data-currentPage="<?= $_GET['page']; ?>" data-limitRecords="<?= $_GET['limitRecords']; ?>"></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Godfrey Turqueza</td>
+                        <td>Admin</td>
+                        <td>6835158</td>
+                        <td>28</td>
+                        <td>09xx - xxx - xxxx</td>
+                        <td>Mabalacat, Pampanga</td>
+                        <td>godfreyturqz@gmail.com</td>
+                        <td>2020-11-07 23:05:15</td>
+                        <td>5fa6b7ab8f231</td>
+                        <td class="align-content-stretch">
+                            <button class="btn btn-sm btn-outline fa fa-qrcode readBtn" data-id="<?= $id; ?>" data-itemNo="<?= $itemNo; ?>"></button>
+                            <button class="btn btn-sm btn-outline fa fa-pencil updateBtn" data-id="<?= $id; ?>" data-itemNo="<?= $itemNo; ?>" data-currentPage="<?= $_GET['page']; ?>" data-limitRecords="<?= $_GET['limitRecords']; ?>"></button>
+                            <button class="btn btn-sm btn-outline fa fa-trash deleteBtn" data-id="<?= $id; ?>" data-itemNo="<?= $itemNo; ?>" data-currentPage="<?= $_GET['page']; ?>" data-limitRecords="<?= $_GET['limitRecords']; ?>"></button>
+                        </td>
+                    </tr>
                     <?php
                         // $limit = isset($_POST['limitRecords']) ? $_GET['limitRecords'] : 10;
                         // $page = isset($_GET['page']) ? $_GET['page'] : 1;

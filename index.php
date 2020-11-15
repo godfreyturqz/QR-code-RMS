@@ -87,7 +87,7 @@ $signup_login_id = $_SESSION[''];
                 </div>
                 <div class="flex-column m-1">
                     <a><button class="btn btn-disabled bg-secondary p-4">
-                        <i class="fa fa-users fa-3x p-5 pb-3"></i>
+                        <i class="fa fa-building-o fa-3x p-5 pb-3"></i>
                         <h4>Employees</h4>
                     </button></a>
                 </div>
